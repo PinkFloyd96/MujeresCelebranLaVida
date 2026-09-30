@@ -3,14 +3,19 @@ package com.ong.desktop;
 import com.ong.desktop.modelos.Usuario;
 import com.ong.desktop.vistas.*;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.util.function.Consumer;
@@ -23,7 +28,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        // Mostrar el login primerod
         VentanaLogin.mostrar(stage, usuario -> {
             construirAppPrincipal(stage, usuario);
         });
@@ -31,17 +35,20 @@ public class App extends Application {
 
     private void construirAppPrincipal(Stage stage, Usuario usuario) {
         root = new BorderPane();
+        ImageView logo = new ImageView();
+        try {
+            logo.setImage(new Image(getClass().getResourceAsStream("/logo.png")));
+            logo.setFitHeight(50);
+            logo.setPreserveRatio(true);
+        } catch (Exception ex) {
+            System.out.println("No se pudo cargar el logo: " + ex.getMessage());
+        }
 
-        Label titulo = new Label(
-                "Sistema de Inventario - Mujeres Celebran la Vida   |   "
-                        + usuario.getNombre() + " (" + usuario.getRol() + ")");
+        Label titulo = new Label("Sistema de Inventario");
         titulo.setStyle("-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: white;");
-        HBox.setHgrow(titulo, javafx.scene.layout.Priority.ALWAYS);
-        titulo.setMaxWidth(Double.MAX_VALUE);
 
         Button btnCerrarSesion = new Button("Cerrar Sesión");
-        btnCerrarSesion.setStyle(
-                "-fx-background-color: #a02060; -fx-text-fill: white; -fx-font-size: 12px; -fx-padding: 8px 15px; -fx-cursor: hand; -fx-background-radius: 5px;");
+        btnCerrarSesion.setStyle("-fx-background-color: #a02060; -fx-text-fill: white; -fx-font-size: 12px; -fx-padding: 8px 15px; -fx-cursor: hand; -fx-background-radius: 5px;");
         btnCerrarSesion.setOnAction(e -> {
             Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
             confirmacion.setTitle("Cerrar Sesión");
@@ -50,18 +57,22 @@ public class App extends Application {
             confirmacion.showAndWait().ifPresent(respuesta -> {
                 if (respuesta == ButtonType.OK) {
                     stage.close();
-                    // Abrir una nueva ventana con el login
                     Stage nuevoStage = new Stage();
                     VentanaLogin.mostrar(nuevoStage, usuarioNuevo -> construirAppPrincipal(nuevoStage, usuarioNuevo));
                 }
             });
         });
 
-        HBox barraSuperior = new HBox(15, titulo, btnCerrarSesion);
+        Region spacer1 = new Region();
+        HBox.setHgrow(spacer1, javafx.scene.layout.Priority.ALWAYS);
+        Region spacer2 = new Region();
+        HBox.setHgrow(spacer2, javafx.scene.layout.Priority.ALWAYS);
+
+        HBox barraSuperior = new HBox(15, logo, spacer1, titulo, spacer2, btnCerrarSesion);
         barraSuperior.getStyleClass().add("barra-superior");
         barraSuperior.setAlignment(Pos.CENTER_LEFT);
 
-        root.setTop(barraSuperior);
+        root.setTop(barraSuperior);;
         menuLateral = new VBox(5);
         menuLateral.setStyle(
                 "-fx-background-color: #f8f9fa; -fx-padding: 15px; -fx-min-width: 200px; -fx-border-color: #dee2e6; -fx-border-width: 0 1px 0 0;");

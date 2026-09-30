@@ -47,7 +47,6 @@ public class PanelCategorias {
 
         breadcrumb.getChildren().addAll(lblRuta, spacer, lblContador);
 
-        // ===== Botones =====
         Button btnNuevo = new Button("➕ Nuevo");
         Button btnEditar = new Button("✏ Editar");
         Button btnEliminar = new Button("🗑 Eliminar");
@@ -72,7 +71,6 @@ public class PanelCategorias {
         }
         barraBotones.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
 
-        // ===== Tabla =====
         TableColumn<Categoria, Integer> colId = new TableColumn<>("ID");
         colId.setCellValueFactory(new PropertyValueFactory<>("idCategoria"));
         colId.setPrefWidth(60);

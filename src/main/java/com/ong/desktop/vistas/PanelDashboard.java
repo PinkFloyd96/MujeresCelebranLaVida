@@ -20,6 +20,8 @@ import java.util.function.Consumer;
 import com.ong.desktop.servicios.Notificaciones;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Popup;
 
 public class PanelDashboard {
@@ -31,9 +33,9 @@ public class PanelDashboard {
 
     private static final Map<String, String> EMOJIS = new HashMap<>();
     static {
-        EMOJIS.put("Calzado", "🥾");
+        EMOJIS.put("Calzado", "👞");
         EMOJIS.put("Vestimenta", "👕");
-        EMOJIS.put("Muebles", "🛋️");
+        EMOJIS.put("Muebles", "🪑");
         EMOJIS.put("Servicios", "🛠️");
         EMOJIS.put("Electrodomésticos", "🔌");
         EMOJIS.put("Tecnología", "💻");
@@ -54,14 +56,18 @@ public class PanelDashboard {
         HBox barra = new HBox(15);
         barra.setAlignment(Pos.CENTER_LEFT);
 
-        Label avatar = new Label("👤");
-        avatar.setStyle(
-                "-fx-font-size: 28px; -fx-background-color: rgba(255,255,255,0.7); -fx-background-radius: 50%; -fx-padding: 8px 12px;");
+        ImageView logo = new ImageView();
+        try {
+            logo.setImage(new Image(getClass().getResourceAsStream("/logo.png")));
+            logo.setFitHeight(70);
+            logo.setPreserveRatio(true);
+        } catch (Exception ex) {
+            Label fallback = new Label("💗");
+            fallback.setStyle("-fx-font-size: 40px;");
+            logo = null;
+        }
 
-        Label titulo = new Label("MUJERES\nCELEBRAN\nLA VIDA");
-        titulo.setStyle(
-                "-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #d63384; -fx-text-alignment: center;");
-
+       
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
@@ -97,7 +103,7 @@ public class PanelDashboard {
         campana.setOnMouseClicked(e -> mostrarNotificaciones(campana, alertasFinal));
         ;
 
-        barra.getChildren().addAll(avatar, titulo, spacer, campanaConBadge);
+        barra.getChildren().addAll(logo, spacer, campanaConBadge);
 
         VBox bienvenida = new VBox(5);
         bienvenida.setAlignment(Pos.CENTER);
@@ -179,7 +185,8 @@ public class PanelDashboard {
 
         return tarjeta;
     }
-        private void mostrarNotificaciones(javafx.scene.Node ancla, List<Notificaciones.Alerta> alertas) {
+
+    private void mostrarNotificaciones(javafx.scene.Node ancla, List<Notificaciones.Alerta> alertas) {
         Popup popup = new Popup();
         popup.setAutoHide(true);
 
@@ -187,9 +194,8 @@ public class PanelDashboard {
         contenido.setPadding(new Insets(15));
         contenido.setStyle(
                 "-fx-background-color: white;" +
-                "-fx-background-radius: 10px;" +
-                "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);"
-        );
+                        "-fx-background-radius: 10px;" +
+                        "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);");
         contenido.setMaxWidth(380);
         contenido.setMaxHeight(500);
 
@@ -213,11 +219,10 @@ public class PanelDashboard {
                 item.setPadding(new Insets(8));
                 item.setStyle(
                         "-fx-background-color: #f8f9fa;" +
-                        "-fx-background-radius: 8px;" +
-                        "-fx-border-color: " + a.color + ";" +
-                        "-fx-border-width: 0 0 0 4px;" +
-                        "-fx-border-radius: 8px;"
-                );
+                                "-fx-background-radius: 8px;" +
+                                "-fx-border-color: " + a.color + ";" +
+                                "-fx-border-width: 0 0 0 4px;" +
+                                "-fx-border-radius: 8px;");
 
                 Label icono = new Label(a.icono);
                 icono.setStyle("-fx-font-size: 20px;");

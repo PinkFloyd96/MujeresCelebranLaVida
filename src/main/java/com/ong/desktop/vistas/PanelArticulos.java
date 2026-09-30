@@ -158,7 +158,6 @@ public class PanelArticulos {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // Si se pasó una categoría inicial, preseleccionarla
         if (categoriaInicial != null) {
             for (String item : cmbCategoria.getItems()) {
                 if (item.startsWith(categoriaInicial + " - ")) {
@@ -327,7 +326,6 @@ public class PanelArticulos {
     }
 
     private void exportar() {
-        // Preguntar al usuario dónde guardar y qué formato
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Guardar reporte de artículos");
         fileChooser.setInitialFileName("articulos");
