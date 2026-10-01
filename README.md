@@ -1,0 +1,1 @@
+Mujeres Celebran la Vida es una aplicación de gestión de inventario desarrollada para facilitar el control de artículos, stock, donaciones, entregas, préstamos, devoluciones y movimientos, manteniendo la trazabilidad de los recursos de la organización.

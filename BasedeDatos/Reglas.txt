@@ -1,0 +1,30 @@
+REGLAS DEL SISTEMA>>
+
+1. Una donación puede contener varios artículos.
+
+2. Una entrega es una salida definitiva.
+
+3. Un préstamo NO elimina el artículo del inventario.
+
+4. Una devolución pertenece a un préstamo.
+
+5. Todo movimiento debe quedar asociado a un usuario.
+
+6. Todo movimiento debe tener fecha y tipo.
+
+7. Un artículo prestado no puede volver a prestarse.
+
+8. Una entrega no puede superar el stock disponible.
+
+9. Una devolución puede dejar el artículo disponible,
+   en reparación o en baja.
+
+10. Los artículos individualizables deben poder tener
+    un código único.
+
+
+TIPOS DE ARTICULOS>>
+Ej: 	escritorio - individual
+	heladera - individual
+	frazada - cantidad
+	ropa - cantidad
