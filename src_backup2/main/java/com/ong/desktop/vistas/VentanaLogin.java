@@ -31,7 +31,6 @@ public class VentanaLogin {
         Label subtitulo = new Label("Mujeres Celebran la Vida");
         subtitulo.setStyle("-fx-text-fill: #6c757d; -fx-font-size: 14px;");
 
-        // Campos
         TextField txtEmail = new TextField();
         txtEmail.setPromptText("Email");
         txtEmail.setMaxWidth(300);
@@ -42,23 +41,20 @@ public class VentanaLogin {
         txtPassword.setMaxWidth(300);
         txtPassword.setPrefHeight(35);
 
-        // Botón
         Button btnLogin = new Button("Iniciar Sesión");
         btnLogin.setStyle("-fx-background-color: #d63384; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 30px; -fx-cursor: hand;");
         btnLogin.setMaxWidth(300);
-
-        // Etiqueta de error (oculta al inicio)
+        
         Label lblError = new Label();
         lblError.setStyle("-fx-text-fill: #dc3545; -fx-font-size: 12px;");
         lblError.setVisible(false);
 
-        // Acción del botón
         ApiServicio api = new ApiServicio();
         btnLogin.setOnAction(e -> {
             lblError.setVisible(false);
             try {
                 Usuario usuario = api.login(txtEmail.getText(), txtPassword.getText());
-                // Login exitoso
+                
                 callback.iniciar(usuario);
             } catch (Exception ex) {
                 lblError.setText(ex.getMessage());
@@ -66,7 +62,7 @@ public class VentanaLogin {
             }
         });
 
-        // Permitir Enter para iniciar sesión
+        //  Enter para iniciar sesión
         txtPassword.setOnAction(e -> btnLogin.fire());
 
         root.getChildren().addAll(titulo, subtitulo, txtEmail, txtPassword, btnLogin, lblError);
