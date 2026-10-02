@@ -79,7 +79,6 @@ public class ApiServicio {
             throw new RuntimeException("Error al borrar. Código: " + response.statusCode());
         }
     }
-        // ============ CATEGORÍAS ============
 
     public List<Categoria> listarCategorias() throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
@@ -132,7 +131,6 @@ public class ApiServicio {
         }
     }
 
-    // ============ UBICACIONES ============
 
     public List<Ubicacion> listarUbicaciones() throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
@@ -185,7 +183,6 @@ public class ApiServicio {
         }
     }
 
-        // ============ USUARIOS ============
 
     public List<Usuario> listarUsuarios() throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
@@ -238,7 +235,6 @@ public class ApiServicio {
         }
     }
 
-    // ============ ENTIDADES ============
 
     public List<Entidad> listarEntidades() throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
@@ -290,7 +286,6 @@ public class ApiServicio {
             throw new RuntimeException("Error al borrar entidad. Código: " + response.statusCode());
         }
     }
-        // ============ DONACIONES ============
 
     public List<DonacionRecepcion> listarDonaciones() throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
@@ -342,7 +337,6 @@ public class ApiServicio {
             throw new RuntimeException("Error al borrar donación. Código: " + response.statusCode());
         }
     }
-        // ============ PRÉSTAMOS ============
 
     public List<Prestamo> listarPrestamos() throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
@@ -394,7 +388,6 @@ public class ApiServicio {
             throw new RuntimeException("Error al borrar préstamo. Código: " + response.statusCode());
         }
     }
-        // ============ ENTREGAS ============
 
     public List<EntregaDefinitiva> listarEntregas() throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
@@ -446,7 +439,6 @@ public class ApiServicio {
             throw new RuntimeException("Error al borrar entrega. Código: " + response.statusCode());
         }
     }
-        // ============ HISTORIAL ============
 
     public List<HistorialMovimiento> listarHistorial() throws Exception {
         HttpRequest request = HttpRequest.newBuilder()
@@ -498,10 +490,9 @@ public class ApiServicio {
             throw new RuntimeException("Error al borrar movimiento. Código: " + response.statusCode());
         }
     }
-        // ============ LOGIN ============
+
 
     public Usuario login(String email, String password) throws Exception {
-        // Construir el JSON manualmente (simple)
         String json = "{\"email\":\"" + email + "\",\"password\":\"" + password + "\"}";
 
         HttpRequest request = HttpRequest.newBuilder()
