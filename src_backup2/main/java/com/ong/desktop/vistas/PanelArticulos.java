@@ -167,13 +167,12 @@ public class PanelArticulos {
         String estado = cmbEstado.getValue();
         String categoria = cmbCategoria.getValue();
 
-        // Extraer el ID de la categoría seleccionada
         Integer idCategoriaFiltro = null;
         if (categoria != null && !categoria.isEmpty()) {
             try {
                 idCategoriaFiltro = Integer.parseInt(categoria.split(" - ")[0]);
             } catch (NumberFormatException ex) {
-                // ignorar
+            
             }
         }
 
@@ -181,7 +180,6 @@ public class PanelArticulos {
 
         List<Articulo> filtrados = todosLosArticulos.stream()
                 .filter(a -> {
-                    // Filtro de texto
                     if (!texto.isEmpty()) {
                         String nombre = a.getNombre() != null ? a.getNombre().toLowerCase() : "";
                         String codigo = a.getCodigoInventario() != null ? a.getCodigoInventario().toLowerCase() : "";
@@ -190,12 +188,10 @@ public class PanelArticulos {
                             return false;
                         }
                     }
-                    // Filtro de estado
                     if (estado != null && !estado.isEmpty()) {
                         if (!estado.equals(a.getEstadoActual()))
                             return false;
                     }
-                    // Filtro de categoría
                     if (idCat != null) {
                         if (a.getIdCategoria() == null || !a.getIdCategoria().equals(idCat))
                             return false;
@@ -251,7 +247,6 @@ public class PanelArticulos {
     }
 
     private void exportar() {
-        // Preguntar al usuario dónde guardar y qué formato
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Guardar reporte de artículos");
         fileChooser.setInitialFileName("articulos");
@@ -264,7 +259,6 @@ public class PanelArticulos {
             return;
 
         try {
-            // Preparar datos
             String[] encabezados = { "ID", "Código", "Nombre", "Cantidad", "Estado", "Descripción", "Conservación" };
             List<String[]> filas = new java.util.ArrayList<>();
 
@@ -280,12 +274,11 @@ public class PanelArticulos {
                 });
             }
 
-            // Exportar según la extensión elegida
+           
             String ruta = archivo.getAbsolutePath();
             if (ruta.toLowerCase().endsWith(".pdf")) {
                 Exportador.exportarPDF(ruta, "Reporte de Artículos", encabezados, filas);
             } else {
-                // Asegurar extensión .xlsx
                 if (!ruta.toLowerCase().endsWith(".xlsx")) {
                     ruta = ruta + ".xlsx";
                 }
