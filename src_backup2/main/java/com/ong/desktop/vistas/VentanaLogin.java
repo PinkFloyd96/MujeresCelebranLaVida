@@ -23,7 +23,6 @@ public class VentanaLogin {
         root.setPadding(new Insets(40));
         root.setStyle("-fx-background-color: #f8f9fa;");
 
-        // Título
         Label titulo = new Label("Sistema de Inventario");
         titulo.setFont(Font.font("System", FontWeight.BOLD, 24));
         titulo.setStyle("-fx-text-fill: #d63384;");
@@ -62,7 +61,6 @@ public class VentanaLogin {
             }
         });
 
-        //  Enter para iniciar sesión
         txtPassword.setOnAction(e -> btnLogin.fire());
 
         root.getChildren().addAll(titulo, subtitulo, txtEmail, txtPassword, btnLogin, lblError);
