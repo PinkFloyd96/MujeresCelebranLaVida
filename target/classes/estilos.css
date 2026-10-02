@@ -6,7 +6,7 @@
 
 .barra-superior {
     -fx-background-color: linear-gradient(to right, #d63384, #e91e8c);
-    -fx-padding: 12px 20px;
+    -fx-padding: 12px 20px; 
 }
 
 .barra-superior .label {
