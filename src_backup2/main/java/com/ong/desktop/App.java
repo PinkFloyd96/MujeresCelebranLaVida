@@ -1,6 +1,6 @@
 package com.ong.desktop;
 
-import com.ong.desktop.modelos.Usuario;
+import com.ong.desktop.modelos.Usuario; 
 import com.ong.desktop.vistas.*;
 import javafx.application.Application;
 import javafx.geometry.Pos;
