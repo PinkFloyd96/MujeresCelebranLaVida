@@ -5,7 +5,7 @@ import com.ong.desktop.modelos.DonacionRecepcion;
 import com.ong.desktop.modelos.EntregaDefinitiva;
 import com.ong.desktop.modelos.Prestamo;
 import com.ong.desktop.servicios.ApiServicio;
-import javafx.geometry.Insets;
+import javafx.geometry.Insets; 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
