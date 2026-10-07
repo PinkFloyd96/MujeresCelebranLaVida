@@ -28,8 +28,6 @@ com\ong\desktop\vistas\PanelEntidades.class
 com\ong\desktop\servicios\ApiServicio$3.class
 com\ong\desktop\modelos\Usuario.class
 com\ong\desktop\vistas\FormularioArticulo.class
-com\ong\desktop\vistas\FormularioUsuario$AlGuardar.class
-com\ong\desktop\vistas\FormularioUsuario.class
 com\ong\desktop\vistas\FormularioArticulo$AlGuardar.class
 com\ong\desktop\modelos\Articulo.class
 com\ong\desktop\vistas\PanelUbicaciones.class
@@ -43,6 +41,7 @@ com\ong\desktop\vistas\FormularioPrestamo$AlGuardar.class
 com\ong\desktop\vistas\FormularioPrestamo.class
 com\ong\desktop\vistas\PanelArticulos$2.class
 com\ong\desktop\vistas\FormularioCategoria$AlGuardar.class
+com\ong\desktop\App.class
 com\ong\desktop\servicios\Notificaciones$Alerta.class
 com\ong\desktop\servicios\ApiServicio$2.class
 com\ong\desktop\vistas\FormularioReserva$AlGuardar.class

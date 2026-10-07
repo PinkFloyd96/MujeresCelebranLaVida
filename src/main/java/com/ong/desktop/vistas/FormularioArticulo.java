@@ -160,9 +160,21 @@ public class FormularioArticulo {
                     a.setIdCategoria(articuloExistente.getIdCategoria());
                     a.setIdUbicacion(articuloExistente.getIdUbicacion());
                 } else {
-                    a.setIdCategoria(1);
+                    a.setIdCategoria(5);
                     a.setIdUbicacion(1);
                 }
+                System.out.println("=== DEBUG ARTÍCULO A GUARDAR ===");
+                System.out.println("Código: " + a.getCodigoInventario());
+                System.out.println("Nombre: " + a.getNombre());
+                System.out.println("Cantidad: " + a.getCantidad());
+                System.out.println("Estado: " + a.getEstadoActual());
+                System.out.println("Conservación: " + a.getEstadoConservacion());
+                System.out.println("ID Categoría: " + a.getIdCategoria());
+                System.out.println("ID Ubicación: " + a.getIdUbicacion());
+                System.out.println("Color: " + a.getColor());
+                System.out.println("Tamaño: " + a.getTamano());
+                System.out.println("Procedencia: " + a.getProcedencia());
+                System.out.println("Ruta Foto: " + a.getRutaFoto());
                 callback.guardar(a);
                 ventana.close();
             } catch (Exception ex) {
