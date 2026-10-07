@@ -6,7 +6,7 @@
 
 .barra-superior {
     -fx-background-color: linear-gradient(to right, #d63384, #e91e8c);
-    -fx-padding: 12px 20px;
+    -fx-padding: 12px 20px; 
 }
 
 .barra-superior .label {
@@ -54,7 +54,6 @@
     -fx-cursor: hand;
 }
 
-/* === Botones generales === */
 .button {
     -fx-background-color: #d63384;
     -fx-text-fill: white;
@@ -119,7 +118,6 @@
     -fx-text-fill: #212529;
 }
 
-/* === Campos de texto === */
 .text-field, .password-field, .combo-box, .date-picker {
     -fx-background-radius: 8px;
     -fx-border-radius: 8px;
@@ -135,7 +133,6 @@
     -fx-border-width: 2px;
 }
 
-/* === Labels === */
 .label {
     -fx-text-fill: #212529;
 }
@@ -151,7 +148,6 @@
     -fx-text-fill: #6c757d;
 }
 
-/* === Tarjetas === */
 .tarjeta {
     -fx-background-color: white;
     -fx-background-radius: 12px;
@@ -159,7 +155,6 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 3);
 }
 
-/* === Alertas === */
 .alerta-ok {
     -fx-background-color: #d4edda;
     -fx-text-fill: #155724;
@@ -173,7 +168,6 @@
     -fx-background-radius: 8px;
     -fx-padding: 8px 15px;
 }
-/* === Tablas con estilo "card" === */
 .table-view {
     -fx-background-color: transparent;
     -fx-background-radius: 12px;
@@ -213,7 +207,7 @@
     -fx-background-radius: 8px;
     -fx-border-color: transparent transparent #f5e5ed transparent;
     -fx-border-width: 0 0 1px 0;
-    -fx-cell-size: 55px;              /* Altura de cada fila */
+    -fx-cell-size: 55px;             
     -fx-padding: 5px;
 }
 
@@ -234,7 +228,6 @@
     -fx-fill: #212529;
 }
 
-/* Celdas */
 .table-view .table-cell {
     -fx-alignment: center-left;
     -fx-font-size: 13px;
@@ -247,7 +240,6 @@
     -fx-text-fill: #212529;
 }
 
-/* Scrollbar más sutil */
 .table-view .scroll-bar:vertical {
     -fx-background-color: transparent;
     -fx-pref-width: 8px;

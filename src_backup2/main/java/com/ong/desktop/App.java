@@ -1,6 +1,6 @@
 package com.ong.desktop;
 
-import com.ong.desktop.modelos.Usuario;
+import com.ong.desktop.modelos.Usuario; 
 import com.ong.desktop.vistas.*;
 import javafx.application.Application;
 import javafx.geometry.Pos;
@@ -22,7 +22,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        // Mostrar el login primerod
         VentanaLogin.mostrar(stage, usuario -> {
             construirAppPrincipal(stage, usuario);
         });
@@ -49,7 +48,6 @@ public class App extends Application {
             confirmacion.showAndWait().ifPresent(respuesta -> {
                 if (respuesta == ButtonType.OK) {
                     stage.close();
-                    // Abrir una nueva ventana con el login
                     Stage nuevoStage = new Stage();
                     VentanaLogin.mostrar(nuevoStage, usuarioNuevo -> construirAppPrincipal(nuevoStage, usuarioNuevo));
                 }
@@ -61,7 +59,6 @@ public class App extends Application {
         barraSuperior.setAlignment(Pos.CENTER_LEFT);
 
         root.setTop(barraSuperior);
-        // ===== Menú lateral =====
         menuLateral = new VBox(5);
         menuLateral.setStyle(
                 "-fx-background-color: #f8f9fa; -fx-padding: 15px; -fx-min-width: 200px; -fx-border-color: #dee2e6; -fx-border-width: 0 1px 0 0;");

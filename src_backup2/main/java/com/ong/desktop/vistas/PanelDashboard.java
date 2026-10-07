@@ -5,7 +5,7 @@ import com.ong.desktop.modelos.DonacionRecepcion;
 import com.ong.desktop.modelos.EntregaDefinitiva;
 import com.ong.desktop.modelos.Prestamo;
 import com.ong.desktop.servicios.ApiServicio;
-import javafx.geometry.Insets;
+import javafx.geometry.Insets; 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -26,7 +26,6 @@ public class PanelDashboard {
         panel.setPadding(new Insets(25));
         panel.setStyle("-fx-background-color: #f8f9fa;");
 
-        // Encabezado
         Label titulo = new Label("Panel General");
         titulo.setFont(Font.font("System", FontWeight.BOLD, 26));
         titulo.setStyle("-fx-text-fill: #d63384;");
@@ -42,7 +41,6 @@ public class PanelDashboard {
         HBox.setHgrow(header.getChildren().get(1), Priority.ALWAYS);
         header.setAlignment(Pos.CENTER_LEFT);
 
-        // Contenedor de tarjetas
         contenedorTarjetas.setHgap(15);
         contenedorTarjetas.setVgap(15);
         contenedorTarjetas.setPrefTileWidth(220);
@@ -62,7 +60,6 @@ public class PanelDashboard {
             List<EntregaDefinitiva> entregas = api.listarEntregas();
             List<Prestamo> prestamos = api.listarPrestamos();
 
-            // Contar por estado
             long total = articulos.size();
             long disponibles = contarPorEstado(articulos, "DISPONIBLE");
             long reservados = contarPorEstado(articulos, "RESERVADO");
@@ -73,7 +70,6 @@ public class PanelDashboard {
                             && a.getCantidad() <= a.getStockMinimo())
                     .count();
 
-            // Agregar tarjetas
             contenedorTarjetas.getChildren().addAll(
                     crearTarjeta("TOTAL ARTÍCULOS", total, "#6c757d"),
                     crearTarjeta("DISPONIBLES", disponibles, "#28a745"),
